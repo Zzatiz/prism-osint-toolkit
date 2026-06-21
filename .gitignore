@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+
+# Environment — never commit real keys
+.env
+.env.local
+.env.*.local
+
+# Local-only working notes (not for the public repo)
+CLAUDELOCAL.md
+.todo

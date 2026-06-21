@@ -1,0 +1,47 @@
+{
+  "name": "osint-toolkit",
+  "version": "1.0.0",
+  "description": "A zero-dependency OSINT toolkit: selector enrichment via free public APIs + a 660-tool URL catalog, exposed as a library, a CLI, and a local HTTP API.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "osint": "dist/cli.js"
+  },
+  "main": "dist/lib.js",
+  "types": "dist/lib.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/lib.d.ts",
+      "import": "./dist/lib.js"
+    }
+  },
+  "files": [
+    "dist",
+    "data",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "node --experimental-strip-types --watch src/cli.ts",
+    "serve": "node --experimental-strip-types src/cli.ts serve",
+    "start": "node dist/cli.js serve",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "osint",
+    "intelligence",
+    "recon",
+    "pivot",
+    "enrichment",
+    "investigation",
+    "cli"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.2"
+  }
+}
