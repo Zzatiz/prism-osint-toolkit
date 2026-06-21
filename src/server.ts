@@ -97,7 +97,7 @@ export function createApp() {
         const tools = loadTools();
         return json(res, 200, {
           ok: true,
-          service: "osint-toolkit",
+          service: "prism-osint-toolkit",
           version: "1.0.0",
           catalog: { live_tools: tools.length, generated_at: loadRawCatalog().generatedAt },
           env_keys: envKeyStatus(),
@@ -150,7 +150,7 @@ export function createApp() {
 export function startServer(port = Number(process.env.PORT) || 8787): void {
   const app = createApp();
   app.listen(port, () => {
-    console.log(`osint-toolkit API listening on http://localhost:${port}`);
+    console.log(`prism-osint-toolkit API listening on http://localhost:${port}`);
     console.log(`  GET  /health   GET /catalog`);
     console.log(`  POST /pivot    POST /tools    POST /lookup`);
   });

@@ -59,7 +59,7 @@ const MAX_STEPS = 14;
 const MAX_DEPTH = 2;
 const MIN_TRACEABLE_CONFIDENCE = 0.6;
 
-const USER_AGENT = "osint-toolkit/1.0 (+https://github.com)";
+const USER_AGENT = "prism-osint-toolkit/1.0 (+https://github.com)";
 
 /* ------------------------------------------------------------------ helpers */
 

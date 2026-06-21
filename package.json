@@ -1,14 +1,14 @@
 {
-  "name": "osint-toolkit",
+  "name": "prism-osint-toolkit",
   "version": "1.0.0",
-  "description": "A zero-dependency OSINT toolkit: selector enrichment via free public APIs + a 660-tool URL catalog, exposed as a library, a CLI, and a local HTTP API.",
+  "description": "The free OSINT toolkit behind PRISM (prism-tools.vip): selector enrichment via free public APIs + a 660-tool URL catalog, exposed as a zero-dependency library, CLI, and local HTTP API.",
   "type": "module",
   "license": "MIT",
   "engines": {
     "node": ">=18"
   },
   "bin": {
-    "osint": "dist/cli.js"
+    "prism": "dist/cli.js"
   },
   "main": "dist/lib.js",
   "types": "dist/lib.d.ts",

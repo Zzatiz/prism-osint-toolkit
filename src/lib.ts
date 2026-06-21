@@ -1,5 +1,5 @@
 /**
- * osint-toolkit — public library entry.
+ * prism-osint-toolkit — public library entry.
  *
  * Two primitives:
  *   pivot()    — enrich a single selector (username/email/domain/ip) into facts

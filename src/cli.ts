@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
- * osint-toolkit CLI.
+ * prism-osint-toolkit CLI.
  *
- *   osint pivot   --username github
- *   osint pivot   --email ada@example.com
- *   osint tools   --category email --email ada@example.com
- *   osint tools   --all --name "Jane Doe" --email jane@example.com
- *   osint lookup  --email jane@example.com --username jane --domain example.com
- *   osint catalog [--category email]
- *   osint serve   [--port 8787]
+ *   prism pivot   --username github
+ *   prism pivot   --email ada@example.com
+ *   prism tools   --category email --email ada@example.com
+ *   prism tools   --all --name "Jane Doe" --email jane@example.com
+ *   prism lookup  --email jane@example.com --username jane --domain example.com
+ *   prism catalog [--category email]
+ *   prism serve   [--port 8787]
  *
  * Flags map 1:1 to seed/selector fields. Add --json for raw JSON output.
  */
@@ -185,10 +185,10 @@ function cmdCatalog(flags: Args["flags"]) {
 }
 
 function help() {
-  console.log(`osint-toolkit — free OSINT enrichment + URL catalog
+  console.log(`prism-osint-toolkit — free OSINT enrichment + URL catalog
 
 USAGE
-  osint <command> [flags]
+  prism <command> [flags]
 
 COMMANDS
   pivot     Enrich one selector via free public APIs (live fetch)
@@ -210,10 +210,10 @@ OTHER FLAGS
   --port <n>          (serve) port, default 8787
 
 EXAMPLES
-  osint pivot  --username github
-  osint tools  --category email --email ada@example.com
-  osint lookup --email jane@example.com --username jane --domain example.com
-  osint serve  --port 8787
+  prism pivot  --username github
+  prism tools  --category email --email ada@example.com
+  prism lookup --email jane@example.com --username jane --domain example.com
+  prism serve  --port 8787
 
 Pivot-able selectors: ${PIVOTABLE_KINDS.join(", ")}`);
 }

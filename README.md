@@ -1,45 +1,63 @@
-# osint-toolkit
+<div align="center">
 
-A zero-dependency OSINT toolkit with two primitives:
+![prism-osint-toolkit](./assets/prism-hero.gif)
 
-- **Pivot engine** — turn a single selector (a username, email, domain, or IP)
-  into a set of facts and traceable seeds, by querying **free, no-auth public
-  APIs** (GitHub, Gravatar, RDAP, Google DNS, ip-api, EmailRep). It actually
-  fetches and parses; it BFS-expands discovered facts one or two hops further.
-- **Tool catalog** — ~660 OSINT URL templates across 22 categories (search,
-  social, email, username, names, addresses, phone, domains, IP, breaches,
-  vehicles, crypto, and more). Give it the selectors you have and it renders
-  ready-to-open URLs. It builds links; it does not scrape.
+# prism-osint-toolkit
 
-Ships as a **library**, a **CLI**, and a **local HTTP API** — pick whichever
-fits. No database, no API keys required, no paid services. Everything runs
-locally on Node 18+ with **no runtime dependencies**.
+**Free OSINT enrichment that turns one identifier into a spectrum of intel.**
 
-> The request/response shape mirrors a typical async OSINT API's `seed` object,
-> so wiring this in next to an existing pipeline is mostly a base-URL change.
+Username, email, domain, or IP → names, locations, linked accounts, traceable
+leads, and 660+ search tools. The free toolset behind
+[PRISM](https://prism-tools.vip), packaged as a zero-dependency library, CLI,
+and local API.
+
+**No keys. No database. No signup.**
+
+</div>
 
 ---
 
-## Install
+## What it does
+
+Two primitives, plain and simple:
+
+- **Pivot** — give it a *username, email, domain, or IP*. It queries free public
+  APIs and hands back real names, locations, linked social accounts, and
+  traceable leads. It actually fetches and parses, and chains discoveries one or
+  two hops further (e.g. `username → blog domain → DNS → IP → geolocation`).
+- **Catalog** — give it *whatever you have* (name, phone, address, email…). It
+  renders **660+ ready-to-open OSINT search URLs** across 22 categories. It
+  builds links; it doesn't scrape.
+
+Run it however suits you:
+
+| Interface | Use it when |
+|-----------|-------------|
+| **Library** | wiring OSINT into your own Node/TS app |
+| **CLI** | quick lookups from the terminal |
+| **Local API** | a local HTTP server that speaks the same `seed` format as the PRISM API |
+
+No API keys, no database, no signup, **zero runtime dependencies**. Node 18+.
+
+---
+
+## Quick start
 
 ```bash
-git clone https://github.com/<you>/osint-toolkit.git
-cd osint-toolkit
+git clone https://github.com/Zzatiz/prism-osint-toolkit.git
+cd prism-osint-toolkit
 npm install
 npm run build
+
+# enrich one selector (live)
+node dist/cli.js pivot --username github
+
+# or run the local API
+node dist/cli.js serve            # http://localhost:8787
 ```
 
-Optionally link the CLI globally:
-
-```bash
-npm link        # now `osint` is on your PATH
-```
-
-Or run it without building, straight from TypeScript (Node 22.6+):
-
-```bash
-node --experimental-strip-types src/cli.ts catalog
-```
+Optionally `npm link` to put `prism` on your PATH, or run straight from
+TypeScript with `node --experimental-strip-types src/cli.ts <command>`.
 
 ---
 
@@ -47,24 +65,24 @@ node --experimental-strip-types src/cli.ts catalog
 
 ```bash
 # Enrich one selector (live fetch)
-osint pivot  --username github
-osint pivot  --email ada@example.com
-osint pivot  --domain example.com
-osint pivot  --ip 8.8.8.8
+prism pivot  --username github
+prism pivot  --email ada@example.com
+prism pivot  --domain example.com
+prism pivot  --ip 8.8.8.8
 
 # Render the URL catalog against the selectors you have
-osint tools  --category email --email ada@example.com
-osint tools  --name "Jane Doe" --city Seattle --state WA      # sweeps all categories
+prism tools  --category email --email ada@example.com
+prism tools  --name "Jane Doe" --city Seattle --state WA      # sweeps all categories
 
 # Combined: pivot every pivot-able selector + render catalog URLs
-osint lookup --email jane@example.com --username jane --domain example.com
+prism lookup --email jane@example.com --username jane --domain example.com
 
 # Browse the catalog
-osint catalog                       # category summary + optional-key status
-osint catalog --category breaches   # list tools in one category
+prism catalog                       # category summary + optional-key status
+prism catalog --category breaches   # list tools in one category
 
 # Start the local API server
-osint serve --port 8787
+prism serve --port 8787
 ```
 
 Add `--json` to any command for machine-readable output.
@@ -73,14 +91,14 @@ Add `--json` to any command for machine-readable output.
 --address --city --state --zip --username --domain --ip --url --query`
 
 Pivot-able selectors (the ones that hit live APIs): `username`, `email`,
-`domain`, `ip`. Everything else is used to render catalog URLs.
+`domain`, `ip`. Everything else feeds the catalog URL builder.
 
 ---
 
 ## Local HTTP API
 
 ```bash
-osint serve            # http://localhost:8787
+prism serve            # http://localhost:8787
 ```
 
 | Method | Path       | Body                                   | Returns |
@@ -104,16 +122,16 @@ curl -sS -X POST http://localhost:8787/pivot \
 ```
 
 The `seed` object accepts any combination of:
-`email · phone · name · first_name · last_name · address · city · state · zip
-· username · domain · ip · url · query`. Unknown keys are ignored; more
-selectors = a richer result.
+`email · phone · name · first_name · last_name · address · city · state · zip ·
+username · domain · ip · url · query`. Unknown keys are ignored; more selectors
+= a richer result.
 
 ---
 
 ## Library
 
 ```ts
-import { pivot, lookup, runTools, loadTools } from "osint-toolkit";
+import { pivot, lookup, runTools, loadTools } from "prism-osint-toolkit";
 
 // Live enrichment of one selector
 const r = await pivot({ kind: "username", value: "github" });
@@ -142,8 +160,17 @@ const tools = loadTools(); // env-key markers resolved; key-less tools dropped
 | ip-api     | ip       | approx geolocation, reverse DNS, org/ISP |
 | EmailRep   | email    | platforms the address is known on |
 
-The engine chains these: e.g. `username → (github) → blog domain → (dns) → IP
-→ (ip-api) → geolocation`.
+---
+
+## Catalog categories
+
+660+ URL templates across: **search · facebook · twitter · instagram · linkedin
+· communities · email · username · names · addresses · telephone · maps ·
+documents · images · videos · domains · ip · business · vehicles · currencies ·
+breaches · audio.**
+
+Each tool carries a `status` (`ok`/`broken`/`blocked`/`dead`); sweeps exclude
+`dead`/`broken` by default.
 
 ---
 
@@ -161,7 +188,7 @@ cp .env.example .env
 #   SHAREDCOUNT_API_KEY   (1 domain tool)
 ```
 
-`osint catalog` shows which keys are set and how many tools each unlocks.
+`prism catalog` shows which keys are set and how many tools each unlocks.
 
 ---
 
@@ -169,10 +196,9 @@ cp .env.example .env
 
 - Catalog entries are **URL templates** — they open a search in your browser or
   return public JSON. Some destinations (e.g. Shodan) have their own paid tiers
-  for the data behind the link; the link itself is free to generate.
-- Tool liveness drifts as third-party sites change. Each tool carries a
-  `status` field (`ok`/`broken`/`blocked`/`dead`); sweeps exclude `dead`/`broken`
-  by default.
+  for the data behind the link; generating the link is free.
+- Tool liveness drifts as third-party sites change; statuses reflect the last
+  check, not a guarantee.
 - Use this for lawful research, security work, and investigations you're
   authorized to perform. You are responsible for how you use it.
 
