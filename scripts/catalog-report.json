@@ -1,0 +1,406 @@
+{
+  "ran_at": "2026-06-22T04:09:29.063Z",
+  "tested": 607,
+  "skipped": 55,
+  "counts": {
+    "ok": 410,
+    "blocked": 188,
+    "dead": 9
+  },
+  "changed": [
+    {
+      "id": "search_yahoo",
+      "from": "ok",
+      "to": "blocked",
+      "http": 500
+    },
+    {
+      "id": "domain_history_whois",
+      "from": "broken",
+      "to": "ok",
+      "http": 200
+    },
+    {
+      "id": "domain_crt_sh",
+      "from": "ok",
+      "to": "blocked",
+      "http": null,
+      "error": "timeout"
+    }
+  ],
+  "broken": [],
+  "dead": [
+    {
+      "id": "name_usa_official",
+      "error": "EAI_AGAIN",
+      "url": "https://usa-official.com/Jane-Doe"
+    },
+    {
+      "id": "map_descarteslabs",
+      "error": "ENOTFOUND",
+      "url": "https://search.descarteslabs.com/?layer=naip_v2_rgb_2014-2015#lat=37.7749&lng=-122.4194&skipTut=true&zoom=20"
+    },
+    {
+      "id": "name_clustrmaps",
+      "error": "EAI_AGAIN",
+      "url": "https://clustrmaps.com/persons/Jane-Doe"
+    },
+    {
+      "id": "domain_columbus",
+      "error": "ENOTFOUND",
+      "url": "https://columbus.elmasy.com/lookup/github.com"
+    },
+    {
+      "id": "domain_timetravel",
+      "error": "ENOTFOUND",
+      "url": "http://timetravel.mementoweb.org/list/19991212110000/http://github.com"
+    },
+    {
+      "id": "domain_threatcrowd",
+      "error": "ENOTFOUND",
+      "url": "https://ci-www.threatcrowd.org/domain.php?domain=github.com"
+    },
+    {
+      "id": "ip_threatcrowd",
+      "error": "ENOTFOUND",
+      "url": "https://ci-www.threatcrowd.org/ip.php?ip=8.8.8.8"
+    },
+    {
+      "id": "biz_politicalmoneyline",
+      "error": "ENOTFOUND",
+      "url": "http://politicalmoneyline.com/tr/tr_MG_IndivDonor.aspx?sMP=1&sText=Jane%20Doe&sCycle=2020"
+    },
+    {
+      "id": "vehicle_vin_illicit",
+      "error": "ENOTFOUND",
+      "url": "https://search.illicit.services/records?vin=1HGCM82633A004352"
+    }
+  ],
+  "skippedDetail": [
+    {
+      "id": "search_tor_torch",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_tor66",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_haystak",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_ahmia_onion",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_srcdemon",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_excavator",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_gdark",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_onionland",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_darksearch",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_phobos",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_deepwebsiteslinks",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_searchgf7",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_tordex",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "search_tor_freshonions",
+      "reason": "tor_onion"
+    },
+    {
+      "id": "tw_posts_from_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_posts_to_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_media_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_keyword_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_posts_no_replies_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_replies_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_xcancel_posts_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_xcancel_to_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_xcancel_media_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_xcancel_keyword_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_xcancel_replies_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_xcancel_no_replies_year",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "year"
+      ]
+    },
+    {
+      "id": "tw_memory_lol_id",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "id"
+      ]
+    },
+    {
+      "id": "tw_list",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "listId"
+      ]
+    },
+    {
+      "id": "tw_list_members",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "listId"
+      ]
+    },
+    {
+      "id": "tw_list_followers",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "listId"
+      ]
+    },
+    {
+      "id": "reddit_search_site",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "site"
+      ]
+    },
+    {
+      "id": "discord_invite",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "invite"
+      ]
+    },
+    {
+      "id": "gab_group",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "group"
+      ]
+    },
+    {
+      "id": "img_flickr_by_email",
+      "reason": "needs_api_key"
+    },
+    {
+      "id": "img_flickr_by_username",
+      "reason": "needs_api_key"
+    },
+    {
+      "id": "img_flickr_by_id",
+      "reason": "needs_api_key"
+    },
+    {
+      "id": "vid_yt_api_video",
+      "reason": "needs_api_key"
+    },
+    {
+      "id": "vid_yt_api_channel",
+      "reason": "needs_api_key"
+    },
+    {
+      "id": "vid_yt_comments",
+      "reason": "needs_api_key"
+    },
+    {
+      "id": "domain_dnslytics_analytics",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "id"
+      ]
+    },
+    {
+      "id": "domain_dnslytics_adsense",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "id"
+      ]
+    },
+    {
+      "id": "domain_nerdydata",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "code"
+      ]
+    },
+    {
+      "id": "domain_sharedcount",
+      "reason": "needs_api_key"
+    },
+    {
+      "id": "domain_adsense_dnslytics",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "pubId"
+      ]
+    },
+    {
+      "id": "domain_adsense_hackertarget",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "pubId"
+      ]
+    },
+    {
+      "id": "domain_ua_dnslytics",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "n"
+      ]
+    },
+    {
+      "id": "domain_ua_publicwww",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "n"
+      ]
+    },
+    {
+      "id": "domain_ua_hackertarget",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "n"
+      ]
+    },
+    {
+      "id": "crypto_btc_to_usd",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "btcAmount"
+      ]
+    },
+    {
+      "id": "crypto_usd_to_btc",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "usdAmount"
+      ]
+    },
+    {
+      "id": "crypto_sat_to_usd",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "sats"
+      ]
+    },
+    {
+      "id": "crypto_usd_to_sat",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "usdAmount"
+      ]
+    },
+    {
+      "id": "breach_elastic_search",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "index",
+        "size"
+      ]
+    },
+    {
+      "id": "breach_elastic_query",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "index",
+        "size"
+      ]
+    },
+    {
+      "id": "radio_broadcastify",
+      "reason": "unsatisfiable_params",
+      "missing": [
+        "menuUrl",
+        "frequency"
+      ]
+    }
+  ]
+}

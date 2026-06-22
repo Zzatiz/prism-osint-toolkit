@@ -170,7 +170,9 @@ documents · images · videos · domains · ip · business · vehicles · curren
 breaches · audio.**
 
 Each tool carries a `status` (`ok`/`broken`/`blocked`/`dead`); sweeps exclude
-`dead`/`broken` by default.
+`dead`/`broken` by default. Statuses are kept current with a re-runnable health
+backtest — `npm run check` re-probes every tool and refreshes its status
+(`blocked` = alive but anti-bot/login-gated, i.e. works in a browser).
 
 ---
 
